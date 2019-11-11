@@ -13,6 +13,7 @@
 		1BD1BBA62378844B007B48F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BD1BBA42378844B007B48F9 /* Main.storyboard */; };
 		1BD1BBA82378844E007B48F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BD1BBA72378844E007B48F9 /* Assets.xcassets */; };
 		1BD1BBAB2378844E007B48F9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BD1BBA92378844E007B48F9 /* LaunchScreen.storyboard */; };
+		1BEADAB02378CAA40085A904 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BEADAAF2378CAA40085A904 /* PlayerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		1BD1BBA72378844E007B48F9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1BD1BBAA2378844E007B48F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1BD1BBAC2378844E007B48F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1BEADAAF2378CAA40085A904 /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				1BD1BB9E2378844B007B48F9 /* AppDelegate.swift */,
 				1BD1BBA02378844B007B48F9 /* SceneDelegate.swift */,
 				1BD1BBA22378844B007B48F9 /* ViewController.swift */,
+				1BEADAAF2378CAA40085A904 /* PlayerViewController.swift */,
 				1BD1BBA42378844B007B48F9 /* Main.storyboard */,
 				1BD1BBA72378844E007B48F9 /* Assets.xcassets */,
 				1BD1BBA92378844E007B48F9 /* LaunchScreen.storyboard */,
@@ -139,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1BD1BBA32378844B007B48F9 /* ViewController.swift in Sources */,
+				1BEADAB02378CAA40085A904 /* PlayerViewController.swift in Sources */,
 				1BD1BB9F2378844B007B48F9 /* AppDelegate.swift in Sources */,
 				1BD1BBA12378844B007B48F9 /* SceneDelegate.swift in Sources */,
 			);
