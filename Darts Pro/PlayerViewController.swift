@@ -11,14 +11,11 @@ import UIKit
 class PlayerViewController: UITableViewController {
 	
 	let defaults = UserDefaults.standard
+	@IBOutlet var playerView: UITableView!
 	
-	struct Keys {
-		static let playersArray = "playersArray";
-	}
-
     override func viewDidLoad() {
         super.viewDidLoad()
-
+		self.playerView.tableFooterView = UIView()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -62,9 +59,8 @@ class PlayerViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-
-        // Configure the cell...
+        
+		let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
 		
 		let players = self.defaults.array(forKey: Keys.playersArray)
 		

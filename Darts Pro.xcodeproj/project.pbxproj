@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B093C3F2379C3F4006CF9F3 /* GameStartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B093C3E2379C3F4006CF9F3 /* GameStartViewController.swift */; };
 		1BD1BB9F2378844B007B48F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD1BB9E2378844B007B48F9 /* AppDelegate.swift */; };
 		1BD1BBA12378844B007B48F9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD1BBA02378844B007B48F9 /* SceneDelegate.swift */; };
 		1BD1BBA32378844B007B48F9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD1BBA22378844B007B48F9 /* ViewController.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1B093C3E2379C3F4006CF9F3 /* GameStartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStartViewController.swift; sourceTree = "<group>"; };
 		1BD1BB9B2378844B007B48F9 /* Darts Pro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Darts Pro.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BD1BB9E2378844B007B48F9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1BD1BBA02378844B007B48F9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 				1BD1BBA02378844B007B48F9 /* SceneDelegate.swift */,
 				1BD1BBA22378844B007B48F9 /* ViewController.swift */,
 				1BEADAAF2378CAA40085A904 /* PlayerViewController.swift */,
+				1B093C3E2379C3F4006CF9F3 /* GameStartViewController.swift */,
 				1BD1BBA42378844B007B48F9 /* Main.storyboard */,
 				1BD1BBA72378844E007B48F9 /* Assets.xcassets */,
 				1BD1BBA92378844E007B48F9 /* LaunchScreen.storyboard */,
@@ -145,6 +148,7 @@
 				1BEADAB02378CAA40085A904 /* PlayerViewController.swift in Sources */,
 				1BD1BB9F2378844B007B48F9 /* AppDelegate.swift in Sources */,
 				1BD1BBA12378844B007B48F9 /* SceneDelegate.swift in Sources */,
+				1B093C3F2379C3F4006CF9F3 /* GameStartViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
