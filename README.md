@@ -1,10 +1,13 @@
 # Darts Pro
 
 Darts Pro is a darts score counter.
-It was hard to find a good darts score counter for iOS, so i decided to make my own based of an android app.
+It was hard to find a good darts score counter for iOS, so i decided to make my own.
 
-## Working Usecases
+## Working Progress
 
 Made possible to manage players and store them as well.
 
 Made possible to select players for the actual game, and store them as well for the upcoming match too.
+
+It is possible now to load the first 1 vs 1 game, it still nedds a little polishing, but I am on it.
+And you can't win now, it's just counting the score.
