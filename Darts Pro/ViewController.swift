@@ -13,6 +13,12 @@ struct Keys {
 	static let activePlayersArray = "activePlayersArray";
 }
 
+struct GameModes {
+	static let threeHundredOne = "301"
+	static let fiveHundredOne = "501"
+	static let ckricket = "Cricket"
+}
+
 class ViewController: UIViewController {
 
 	@IBOutlet weak var newGameButton: UIButton!
@@ -21,13 +27,11 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 		
         // Do any additional setup after loading the view.
-		if UserDefaults.standard.array(forKey: Keys.playersArray)!.count == 0 {
-			newGameButton.isEnabled = false
-		}
+		
     }
 	
 	override func viewWillAppear(_ animated: Bool) {
-		if UserDefaults.standard.array(forKey: Keys.playersArray)!.count == 0 {
+		if (UserDefaults.standard.array(forKey: Keys.playersArray) == nil) || UserDefaults.standard.array(forKey: Keys.playersArray)!.count == 0 {
 			newGameButton.isEnabled = false
 		} else {
 			newGameButton.isEnabled = true
