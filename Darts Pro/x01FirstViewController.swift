@@ -34,16 +34,18 @@ class x01FirstViewController: UIViewController {
 	@IBOutlet weak var returnBtn: UIButton!
 	
 	var turn = true
-	var startScore = 301
 	var player1Score = 0
 	var player2Score = 0
 	
 	var actualScore = 0
+	var isGameRunning = true
 	
-	var gameMode = GameModes.fiveHundredOne
+	var gameMode = GameModes.threeHundredOne
 	
 	override func viewDidLoad() {
         super.viewDidLoad()
+		
+		isGameRunning = true
 		
 		topNavigationItem.title = gameMode
 
@@ -55,22 +57,23 @@ class x01FirstViewController: UIViewController {
 		
 		self.resetScores()
 		self.setLabels()
-        // Do any additional setup after loading the view.
     }
 	
 	func setLabels() {
-		if turn {
-			player1Label.textColor = UIColor.white.withAlphaComponent(1)
-            player2Label.textColor = UIColor.white.withAlphaComponent(0.5)
-            player1Indicator.isHidden = false
-            player2Indicator.isHidden = true
-		} else {
-			player1Label.textColor = UIColor.white.withAlphaComponent(0.5)
-            player2Label.textColor = UIColor.white.withAlphaComponent(1)
-            player1Indicator.isHidden = true
-            player2Indicator.isHidden = false
+		if isGameRunning {
+			if turn {
+				player1Label.textColor = UIColor.white.withAlphaComponent(1)
+				player2Label.textColor = UIColor.white.withAlphaComponent(0.5)
+				player1Indicator.isHidden = false
+				player2Indicator.isHidden = true
+			} else {
+				player1Label.textColor = UIColor.white.withAlphaComponent(0.5)
+				player2Label.textColor = UIColor.white.withAlphaComponent(1)
+				player1Indicator.isHidden = true
+				player2Indicator.isHidden = false
+			}
+			turn = !turn
 		}
-		turn = !turn
     }
 	
 	func printOnLabel(){
@@ -89,19 +92,63 @@ class x01FirstViewController: UIViewController {
 	}
 	
 	func calculateScore(){
+		var tmp : Int
 		if !turn {
-			player1Score = player1Score - actualScore
+			tmp = player1Score - actualScore
+			if tmp > 0 {
+				player1Score = tmp
+			} else if tmp == 0 {
+				player1Score = tmp
+				isGameRunning = false
+				winGame(playerName: player1Label.text!)
+			}
 		} else {
-			player2Score = player2Score - actualScore
+			tmp = player2Score - actualScore
+			if tmp > 0 {
+				player2Score = tmp
+			} else if tmp >= 0 {
+				player2Score = tmp
+				isGameRunning = false
+				winGame(playerName: player2Label.text!)
+			}
 		}
 		actualScore = 0
 	}
 	
-	func checkScoreOke() -> Bool {
-		if actualScore > 180 {
-			return false
+	func showToast(message : String, font: UIFont) {
+		let toastLabel = UILabel(frame: CGRect(x: self.view.frame.size.width/2 - 75, y: self.view.frame.size.height-100, width: 150, height: 35))
+		toastLabel.backgroundColor = UIColor.systemYellow.withAlphaComponent(1)
+		toastLabel.textColor = UIColor.black
+		toastLabel.font = font
+		toastLabel.textAlignment = .center;
+		toastLabel.text = message
+		toastLabel.alpha = 1.0
+		toastLabel.layer.cornerRadius = 10;
+		toastLabel.clipsToBounds  =  true
+		self.view.addSubview(toastLabel)
+		UIView.animate(withDuration: 2.0, delay: 0.6, options: .curveEaseOut, animations: {
+			 toastLabel.alpha = 0.0
+		}, completion: {(isCompleted) in
+			toastLabel.removeFromSuperview()
+		})
+	}
+	
+	func winGame(playerName : String) {
+		let alert = UIAlertController(title: "\(playerName) won!", message: nil, preferredStyle: .alert)
+		let okBtn = UIAlertAction(title: "Well done!", style: .default) {
+			(UIAlertAction) in
+			self.navigationController?.popViewController(animated: true)
 		}
-		return true
+        alert.addAction(okBtn)
+        
+        present(alert, animated: true)
+	}
+	
+	func validScore(aScore: Int, realScore: Int) -> Bool{
+		if aScore <= 180 && aScore <= realScore {
+			return true
+		}
+		return false
 	}
 
 	@IBAction func pressButton(_ sender: UIButton) {
@@ -116,10 +163,15 @@ class x01FirstViewController: UIViewController {
 			printOnLabel()
 			break
 		case returnBtn:
-			if checkScoreOke() {
+			if actualScore == 0 {
+				setLabels()
+				showToast(message: "No score.", font: UIFont.systemFont(ofSize: 18))
+			} else if validScore(aScore: actualScore, realScore: turn ? player2Score: player1Score ) {
 				calculateScore()
 				resetScores()
 				setLabels()
+			} else {
+				showToast(message: "Invalid score!", font: UIFont.systemFont(ofSize: 18))
 			}
 			break
 		case deleteBtn:
@@ -131,7 +183,7 @@ class x01FirstViewController: UIViewController {
 			}
 			break
 		default:
-			print("What the fuck happened ?")
+			showToast(message: "How did you do that?", font: UIFont.systemFont(ofSize: 18))
 		}
 		
 	}
